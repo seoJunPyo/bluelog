@@ -8,7 +8,7 @@ const ThemeButton = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <ActionIcon size="xl" onClick={toggleTheme}>
+    <ActionIcon c="var(--font-color)" size="xl" onClick={toggleTheme}>
       {theme === 'dark' ? <BsMoon size="20px" /> : <BsSun size="20px" />}
     </ActionIcon>
   );
@@ -17,6 +17,7 @@ const ThemeButton = () => {
 const HoverBox = ({ component, children }) => (
   <Box
     p="xs"
+    fw={400}
     component={component}
     sx={{
       display: 'flex',
@@ -35,6 +36,8 @@ const Shell = () => (
   <AppShell
     header={
       <Header
+        c="var(--font-color)"
+        position="fixed"
         display="flex"
         height="70px"
         px="lg"
@@ -43,6 +46,7 @@ const Shell = () => (
         sx={{
           justifyContent: 'space-between',
           alignItems: 'center',
+          boxShadow: '0 3px 10px  rgba(0,0,0,0.2)',
         }}>
         <Title fz="36px" fw="600">
           <Link to="/">BLUELOG</Link>

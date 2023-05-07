@@ -5,6 +5,7 @@ import { Global } from '@emotion/react';
 import globalStyle from './style/globalStyle';
 import store from './store';
 import { Shell } from './components';
+import Main from './pages/Main';
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <div>BLUE ARCHIVE</div>,
+        element: <Main />,
       },
     ],
   },

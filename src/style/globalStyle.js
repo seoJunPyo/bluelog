@@ -7,7 +7,6 @@ const globalStyle = css`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: var(--font-color);
   }
 
   body {
@@ -33,16 +32,18 @@ const globalStyle = css`
   body[data-theme='light'] {
     --body-bg-color: var(--color-white1);
     --input-bg-color: var(--color-white2);
-    --font-color: var(--color-sky2);
     --border-color: var(--color-sky2);
+    --font-color: var(--color-sky2);
+    --content-font-color: var(--color-black2);
     --hover-bg-color: rgba(0, 0, 0, 0.1);
   }
 
   body[data-theme='dark'] {
-    --body-bg-color: var(--color-black1);
-    --input-bg-color: var(--color-black2);
-    --font-color: var(--color-sky1);
+    --body-bg-color: var(--color-black2);
+    --input-bg-color: var(--color-black1);
     --border-color: var(--color-sky2);
+    --font-color: var(--color-sky1);
+    --content-font-color: var(--color-white1);
     --hover-bg-color: rgba(255, 255, 255, 0.1);
   }
 
@@ -54,13 +55,18 @@ const globalStyle = css`
 
   a {
     text-decoration: none;
-    color: var(--font-color);
+    color: inherit;
   }
 
   button {
     :hover {
       background-color: var(--hover-bg-color) !important;
     }
+  }
+
+  input {
+    color: var(--content-font-color) !important;
+    background: var(--input-bg-color) !important;
   }
 `;
 
