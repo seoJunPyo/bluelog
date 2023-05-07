@@ -1,2 +1,0 @@
-# bluelog
-blog project

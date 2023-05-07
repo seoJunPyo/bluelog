@@ -1,0 +1,30 @@
+
+
+
+@font-face {
+  font-family: 'blueArchive';
+  font-style:normal;
+  font-weight: 400;
+  src: url('./경기천년제목OTF_Light.otf') format('woff');
+}
+
+@font-face {
+  font-family: 'blueArchive';
+  font-style:normal;
+  font-weight: 600;
+  src: url('./경기천년제목OTF_Medium.otf') format('woff');
+}
+
+@font-face {
+  font-family: 'blueArchive';
+  font-style:normal;
+  font-weight: 800;
+  src: url('./경기천년제목OTF_Bold.otf') format('woff');
+}
+
+@font-face {
+  font-family: 'blueArchive';
+  font-style:normal;
+  font-weight: 800;
+  src: url('./경기천년제목OTFV_Bold.otf') format('woff');
+}
