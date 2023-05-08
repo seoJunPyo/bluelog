@@ -14,8 +14,12 @@ const userSlice = createSlice({
       user.email = email;
       user.nickName = nickName;
     },
+    logOutUser: user => {
+      user.email = null;
+      user.nickName = null;
+    },
   },
 });
 
 export default userSlice.reducer;
-export const { updateUserInfo } = userSlice.actions;
+export const { updateUserInfo, logOutUser } = userSlice.actions;

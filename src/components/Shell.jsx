@@ -1,65 +1,10 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import { AppShell, Header, Title, ActionIcon, Box, Flex } from '@mantine/core';
-import { BsMoon, BsSun } from 'react-icons/bs';
-import useTheme from '../hooks/useTheme';
-import { Toasts } from '.';
-
-const ThemeButton = () => {
-  const { theme, toggleTheme } = useTheme();
-
-  return (
-    <ActionIcon c="var(--font-color)" size="xl" onClick={toggleTheme}>
-      {theme === 'dark' ? <BsMoon size="20px" /> : <BsSun size="20px" />}
-    </ActionIcon>
-  );
-};
-
-const LinkHoverBox = ({ to, children }) => (
-  <Link to={to}>
-    <Box
-      p="xs"
-      fw={400}
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: '5px',
-        ':hover': {
-          backgroundColor: 'var(--hover-bg-color)',
-        },
-      }}>
-      {children}
-    </Box>
-  </Link>
-);
+import { Outlet } from 'react-router-dom';
+import { AppShell } from '@mantine/core';
+import { Header, Toasts } from '.';
 
 const Shell = () => (
-  <AppShell
-    header={
-      <Header
-        c="var(--font-color)"
-        position="fixed"
-        display="flex"
-        height="70px"
-        px="lg"
-        bg="var(--body-bg-color)"
-        withBorder={false}
-        sx={{
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          boxShadow: '0 3px 10px  rgba(0,0,0,0.2)',
-        }}>
-        <Title fz="36px" fw="600">
-          <Link to="/">BLUELOG</Link>
-        </Title>
-        <Flex fz="20px" fw="600">
-          <ThemeButton />
-          <LinkHoverBox>전체보기</LinkHoverBox>
-          <LinkHoverBox to="/login">Log In</LinkHoverBox>
-        </Flex>
-      </Header>
-    }>
+  <AppShell header={<Header />}>
     <Outlet />
     <Toasts />
   </AppShell>

@@ -10,4 +10,6 @@ const logIn = ({ email, password }) => axios.post('/api/login', { email, passwor
 
 const signUp = userInfo => axios.post('/api/signup', { userInfo });
 
-export { checkEmail, checkDuplicatedEmail, checkDuplicatedNickName, logIn, signUp };
+const logOut = () => axios.get('/api/logout');
+
+export { checkEmail, checkDuplicatedEmail, checkDuplicatedNickName, logIn, signUp, logOut };
