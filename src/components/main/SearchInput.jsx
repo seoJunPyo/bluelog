@@ -9,11 +9,11 @@ const SearchInput = () => (
     sx={{
       padding: '16px',
       input: {
-        height: '50px',
-        padding: '0 24px',
+        height: '56px',
+        padding: '0 32px',
         fontSize: '20px',
         border: 'none',
-        boxShadow: '4px 4px 12px 2px rgba(0,0,0,0.2)',
+        boxShadow: 'var(--box-shadow)',
       },
     }}
   />

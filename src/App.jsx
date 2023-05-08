@@ -1,11 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Global } from '@emotion/react';
 import globalStyle from './style/globalStyle';
-import store from './store';
-import { Shell } from './components';
-import Main from './pages/Main';
+import { store, persistor } from './store';
+import { Email, Password, Shell } from './components';
+import { Main, LogIn } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -16,14 +17,30 @@ const router = createBrowserRouter([
         index: true,
         element: <Main />,
       },
+      {
+        path: '/login',
+        element: <LogIn />,
+        children: [
+          {
+            index: true,
+            element: <Email />,
+          },
+          {
+            path: 'password',
+            element: <Password />,
+          },
+        ],
+      },
     ],
   },
 ]);
 
 const App = () => (
   <Provider store={store}>
-    <Global styles={globalStyle} />
-    <RouterProvider router={router} />
+    <PersistGate loading={null} persistor={persistor}>
+      <Global styles={globalStyle} />
+      <RouterProvider router={router} />
+    </PersistGate>
   </Provider>
 );
 

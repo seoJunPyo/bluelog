@@ -12,7 +12,7 @@ const Badge = ({ text }) => (
       sx={{
         border: 'none',
         background: 'var(--input-bg-color)',
-        boxShadow: '4px 4px 12px 2px rgba(0,0,0,0.2)',
+        boxShadow: 'var(--box-shadow)',
 
         ':hover': {
           transform: 'scale3d(1.05,1.05,1.05)',

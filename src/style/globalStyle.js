@@ -3,10 +3,13 @@ import '../fonts/font.css';
 
 const globalStyle = css`
   * {
-    font-family: 'blueArchive' !important;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  *:not(input) {
+    font-family: 'blueArchive' !important;
   }
 
   body {
@@ -23,7 +26,8 @@ const globalStyle = css`
     --color-yellow1: #f3e94a;
     --color-yellow2: #bc6f0e;
     --color-red1: #ff0000;
-    --color-red1: #920008;
+    --color-red2: #920008;
+    --box-shadow: 4px 4px 12px 2px rgba(0, 0, 0, 0.2);
 
     font-family: 'blueArchive' !important;
     background-color: var(--body-bg-color);
@@ -35,6 +39,7 @@ const globalStyle = css`
     --border-color: var(--color-sky2);
     --font-color: var(--color-sky2);
     --content-font-color: var(--color-black2);
+    --error-color: var(--color-red2);
     --hover-bg-color: rgba(0, 0, 0, 0.1);
   }
 
@@ -44,6 +49,7 @@ const globalStyle = css`
     --border-color: var(--color-sky2);
     --font-color: var(--color-sky1);
     --content-font-color: var(--color-white1);
+    --error-color: var(--color-red1);
     --hover-bg-color: rgba(255, 255, 255, 0.1);
   }
 

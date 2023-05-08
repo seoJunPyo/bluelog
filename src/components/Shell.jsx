@@ -14,22 +14,23 @@ const ThemeButton = () => {
   );
 };
 
-const HoverBox = ({ component, children }) => (
-  <Box
-    p="xs"
-    fw={400}
-    component={component}
-    sx={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: '5px',
-      ':hover': {
-        backgroundColor: 'var(--hover-bg-color)',
-      },
-    }}>
-    {children}
-  </Box>
+const LinkHoverBox = ({ to, children }) => (
+  <Link to={to}>
+    <Box
+      p="xs"
+      fw={400}
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: '5px',
+        ':hover': {
+          backgroundColor: 'var(--hover-bg-color)',
+        },
+      }}>
+      {children}
+    </Box>
+  </Link>
 );
 
 const Shell = () => (
@@ -53,8 +54,8 @@ const Shell = () => (
         </Title>
         <Flex fz="20px" fw="600">
           <ThemeButton />
-          <HoverBox component={Link}>전체보기</HoverBox>
-          <HoverBox component={Link}>Log In</HoverBox>
+          <LinkHoverBox>전체보기</LinkHoverBox>
+          <LinkHoverBox to="/login">Log In</LinkHoverBox>
         </Flex>
       </Header>
     }>
