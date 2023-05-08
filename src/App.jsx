@@ -5,8 +5,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Global } from '@emotion/react';
 import globalStyle from './style/globalStyle';
 import { store, persistor } from './store';
-import { Email, Password, Shell } from './components';
-import { Main, LogIn } from './pages';
+import { LogInEmail, LogInPassword, Shell, SingUpEmail, SingUpPassword, SingUpNickName } from './components';
+import { Main, LogIn, SignUp } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -18,16 +18,34 @@ const router = createBrowserRouter([
         element: <Main />,
       },
       {
-        path: '/login',
+        path: 'login',
         element: <LogIn />,
         children: [
           {
             index: true,
-            element: <Email />,
+            element: <LogInEmail />,
           },
           {
             path: 'password',
-            element: <Password />,
+            element: <LogInPassword />,
+          },
+        ],
+      },
+      {
+        path: 'signup',
+        element: <SignUp />,
+        children: [
+          {
+            index: true,
+            element: <SingUpEmail />,
+          },
+          {
+            path: 'password',
+            element: <SingUpPassword />,
+          },
+          {
+            path: 'nickname',
+            element: <SingUpNickName />,
           },
         ],
       },

@@ -3,6 +3,7 @@ import { Outlet, Link } from 'react-router-dom';
 import { AppShell, Header, Title, ActionIcon, Box, Flex } from '@mantine/core';
 import { BsMoon, BsSun } from 'react-icons/bs';
 import useTheme from '../hooks/useTheme';
+import { Toasts } from '.';
 
 const ThemeButton = () => {
   const { theme, toggleTheme } = useTheme();
@@ -60,6 +61,7 @@ const Shell = () => (
       </Header>
     }>
     <Outlet />
+    <Toasts />
   </AppShell>
 );
 

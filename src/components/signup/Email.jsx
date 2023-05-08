@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Flex, Stack, TextInput } from '@mantine/core';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ErrorText, LabelText, FillButton, InfoLinkText } from '..';
-import { checkEmail } from '../../api/auth';
+import { checkDuplicatedEmail } from '../../api/auth';
 
 const emailScheme = z.object({
   email: z.string().email({ message: '적절하지 않은 이메일입니다.' }),
@@ -18,20 +18,25 @@ const Email = () => {
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm({ resolver: zodResolver(emailScheme), shouldFocusError: true });
+  } = useForm({
+    resolver: zodResolver(emailScheme),
+    shouldFocusError: true,
+  });
 
   const [isLoading, setLoading] = React.useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onSubmit = async data => {
-    const { email } = data;
     setLoading(true);
 
     try {
-      await checkEmail(email);
+      const { email } = data;
+
+      await checkDuplicatedEmail(email);
 
       navigate('password', {
-        state: { email },
+        state: { ...location.state, email },
       });
     } catch (e) {
       setError('email', { message: e.response.data.message });
@@ -46,6 +51,7 @@ const Email = () => {
         <TextInput
           size="lg"
           {...register('email')}
+          defaultValue={location.state?.email ?? ''}
           placeholder="example@example.com"
           label={<LabelText text="Email" />}
           error={errors?.email && <ErrorText text={errors.email.message} />}
@@ -53,7 +59,7 @@ const Email = () => {
           autoFocus
         />
         <Flex justify="space-between" align="center">
-          <InfoLinkText infoText="아직 회원이 아니신가요?" linkText="회원가입" to="/signup" />
+          <InfoLinkText infoText="로그인 시 사용될 이메일입니다." />
           <FillButton type="submit" label="다음" loading={isLoading} />
         </Flex>
       </Stack>
