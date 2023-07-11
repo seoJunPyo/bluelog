@@ -1,5 +1,7 @@
 # BLUELOG PROJECT
 
+![image](https://github.com/seoJunPyo/bluelog/assets/114892495/bce20d0f-f2d2-4f0f-aad5-5608956b86f5)
+
 - 배포 링크 : https://bluelog-4520e.web.app/
 - github 링크 : https://github.com/seoJunPyo/bluelog
 
