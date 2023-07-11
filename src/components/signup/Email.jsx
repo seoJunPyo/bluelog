@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -6,7 +7,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Flex, Stack, TextInput } from '@mantine/core';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ErrorText, LabelText, FillButton, InfoLinkText } from '..';
-import { checkDuplicatedEmail } from '../../api/auth';
 
 const emailScheme = z.object({
   email: z.string().email({ message: '적절하지 않은 이메일입니다.' }),
@@ -23,26 +23,21 @@ const Email = () => {
     shouldFocusError: true,
   });
 
-  const [isLoading, setLoading] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const onSubmit = async data => {
-    setLoading(true);
-
-    try {
-      const { email } = data;
-
-      await checkDuplicatedEmail(email);
-
-      navigate('password', {
-        state: { ...location.state, email },
-      });
-    } catch (e) {
-      setError('email', { message: e.response.data.message });
-    } finally {
-      setLoading(false);
+  React.useEffect(() => {
+    if (location.state?.error) {
+      setError('email', { message: '이미 존재하는 이메일입니다.' });
     }
+  }, []);
+
+  const onSubmit = async data => {
+    const { email } = data;
+
+    navigate('password', {
+      state: { ...location.state, email },
+    });
   };
 
   return (
@@ -55,12 +50,11 @@ const Email = () => {
           placeholder="example@example.com"
           label={<LabelText text="Email" />}
           error={errors?.email && <ErrorText text={errors.email.message} />}
-          disabled={isLoading}
           autoFocus
         />
         <Flex justify="space-between" align="center">
           <InfoLinkText infoText="로그인 시 사용될 이메일입니다." />
-          <FillButton type="submit" label="다음" loading={isLoading} />
+          <FillButton type="submit" label="다음" />
         </Flex>
       </Stack>
     </form>

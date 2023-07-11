@@ -1,15 +1,15 @@
 import { Button } from '@mantine/core';
 import React from 'react';
 
-const FillButton = ({ type, onClick, label, loading }) => (
+const FillButton = ({ radius, type, onClick, label, loading, size, disabled }) => (
   <Button
+    radius={radius}
     type={type}
     onClick={onClick}
-    miw="75px"
-    fz="16px"
     fw="400"
-    h="35px"
     loading={loading}
+    disabled={disabled}
+    size={size}
     sx={{
       background: 'var(--color-blue2)',
       ':hover': {

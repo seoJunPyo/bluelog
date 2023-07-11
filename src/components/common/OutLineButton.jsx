@@ -1,14 +1,14 @@
 import { Button } from '@mantine/core';
 import React from 'react';
 
-const OutLineButton = ({ type, onClick, label, loading }) => (
+const OutLineButton = ({ type, onClick, label, loading, leftIcon, size }) => (
   <Button
+    size={size}
     type={type}
     onClick={onClick}
-    fz="16px"
     fw="400"
-    h="35px"
     loading={loading}
+    leftIcon={leftIcon}
     sx={{
       background: 'none',
       border: '1px solid var(--font-color)',

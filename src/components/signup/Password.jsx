@@ -67,7 +67,6 @@ const Password = () => {
             errors?.confirmPassword && <ErrorText text={errors.confirmPassword.message} autoComplete="cc-number" />
           }
           autoComplete="cc-number"
-          autoFocus
         />
         <Flex justify="space-between" align="center">
           <InfoLinkText infoText="비밀번호는 숫자, 대소문자, 특수문자를 포함해야 합니다." />

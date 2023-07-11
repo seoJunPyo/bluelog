@@ -8,7 +8,7 @@ const Toasts = () => {
 
   return (
     <Portal>
-      <Flex direction="column" gap="8px" pos="fixed" top="10%" right="8px">
+      <Flex direction="column" gap="8px" pos="fixed" top="85px" right="8px">
         {list.map(toastInfo => (
           <Toast key={toastInfo.id} {...toastInfo} />
         ))}

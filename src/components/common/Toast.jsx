@@ -30,6 +30,7 @@ const Toast = ({ id, type, title, content, autoClose = true, autoCloseDelay = 30
   return (
     <Notification
       w="360px"
+      mih="75px"
       bg="var(--input-bg-color)"
       title={title}
       icon={type === 'success' ? <BsCheckLg /> : <BsXLg />}

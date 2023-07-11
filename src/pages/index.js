@@ -1,3 +1,11 @@
 export { default as Main } from './Main';
 export { default as LogIn } from './LogIn';
 export { default as SignUp } from './SignUp';
+export { default as PostEditor } from './PostEditor';
+export { default as AllPosts } from './AllPosts';
+export { default as SearchedPosts } from './SearchedPosts';
+export { default as Post } from './Post';
+export { default as CreatePost } from './CreatePost';
+export { default as EditPost } from './EditPost';
+export { default as MyBlog } from './MyBlog';
+export { default as Category } from './Category';
