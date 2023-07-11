@@ -29,6 +29,8 @@ const MenuItem = ({ icon, children, onClick }) => (
 const UserMenu = () => {
   const { user, isLoading, userSignOut, initUser } = useUser();
 
+  console.log(isLoading);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(initUser, []);
 
@@ -80,8 +82,6 @@ const UserMenu = () => {
             </Flex>
           </Menu.Dropdown>
         </Menu>
-      ) : isLoading ? (
-        <Avatar radius="xl" />
       ) : (
         <LinkHoverBox to="/login">Log In</LinkHoverBox>
       )}

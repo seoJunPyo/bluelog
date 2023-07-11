@@ -12,7 +12,7 @@ const Post = () => {
 
   return (
     <Box mb="100px">
-      {isLoading ? <PostSkeleton /> : user && <PostDetail post={post} user={user} />}
+      {isLoading ? <PostSkeleton /> : <PostDetail post={post} user={user} />}
       <CommentSection postId={postId} user={user} />
       <PostFooter post={post} user={user} isLoading={isLoading} />
     </Box>

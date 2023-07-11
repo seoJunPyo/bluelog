@@ -10,12 +10,12 @@ import { useGetUserQuery, useToggleSaveMutation } from '../../services/userApi';
 
 const PostDetail = ({ post, user }) => {
   const navigate = useNavigate();
-  const { data: userInfo } = useGetUserQuery({ email: user.email });
+  const { data: userInfo } = useGetUserQuery({ email: user?.email ?? '' });
   const [removePost] = useRemovePostMutation();
   const [toggleLikePost] = useToggleLikeMutation();
   const [toggleSavePost] = useToggleSaveMutation();
-  const likeChecked = post.like.includes(user.email);
-  const saveChecked = userInfo?.savedPosts?.includes(post.id);
+  const likeChecked = post.like.includes(user?.email);
+  const saveChecked = userInfo?.savedPosts?.includes(post.id) ?? false;
 
   const handleClickRemove = async () => {
     await removePost({ postId: post.id });
@@ -40,7 +40,7 @@ const PostDetail = ({ post, user }) => {
             fz="24px"
             size="xl"
             onClick={() => {
-              toggleSavePost({ email: user.email, checked: saveChecked, postId: post.id });
+              toggleSavePost({ email: user?.email, checked: saveChecked, postId: post.id });
             }}>
             {saveChecked ? <BsBookmarkFill /> : <BsBookmark />}
           </ActionIcon>
@@ -48,7 +48,7 @@ const PostDetail = ({ post, user }) => {
             gap="4px"
             checked={likeChecked}
             count={post.like.length}
-            onClick={() => toggleLikePost({ postId: post.id, checked: likeChecked, email: user.email })}
+            onClick={() => toggleLikePost({ postId: post.id, checked: likeChecked, email: user?.email })}
           />
         </Flex>
       </Flex>
