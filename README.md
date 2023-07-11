@@ -1,5 +1,8 @@
 # BLUELOG PROJECT
 
+- 배포 링크 : https://bluelog-4520e.web.app/
+- github 링크 : https://github.com/seoJunPyo/bluelog
+
 ## Introduce 
 
 `BLUELOG`는 블로그 플랫폼으로 게시물을 작성하고 카테고리로 묶어 관리할 수 있고, 태그를 통해 게시물 검색할 수 있는 기능을 제공합니다. 게시물 작성에는 마크 다운 편집기를 제공합니다.
