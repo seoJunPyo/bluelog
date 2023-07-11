@@ -9,9 +9,13 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
-          - name: Generate Environment Variables File
+      - name: Generate Environment Variables File
         run: |
           echo "VITE_ALGOLIA_API_KEY=$VITE_ALGOLIA_API_KEY" >> .env
           echo "VITE_ALGOLIA_APP_ID=$VITE_ALGOLIA_APP_ID" >> .env
